@@ -16,4 +16,13 @@ feature 'Store view' do
       expect(page).to have_content "£1,000.00"
     end
   end
+
+  context '#Menu, User can navigate to store homepage from anywhere' do
+    scenario 'visit home' do
+      visit '/'
+      expect(page).to have_link 'Home'
+      click_link 'Home'
+      expect(current_path).to eq store_path
+    end
+  end
 end
